@@ -9,6 +9,7 @@ class ArtistDetailsPage extends StatelessWidget {
   Widget _buildContent() {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           _buildAvatar(),
           _buildInfo(),
@@ -37,7 +38,42 @@ class ArtistDetailsPage extends StatelessWidget {
   }
 
   Widget _buildInfo() {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            '${artist.firstName}\n${artist.lastName}',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            artist.location,
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.85),
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Container(
+            color: Colors.white.withOpacity(0.85),
+            margin: EdgeInsets.symmetric(vertical: 16),
+            width: 225,
+            height: 1,
+          ),
+          Text(
+            artist.biography,
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.85),
+              height: 1.4,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildVideoScroller() {
