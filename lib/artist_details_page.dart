@@ -77,7 +77,22 @@ class ArtistDetailsPage extends StatelessWidget {
   }
 
   Widget _buildVideoScroller() {
-    return Container();
+    return Padding(
+      padding: EdgeInsets.only(top: 16),
+      child: SizedBox.fromSize(
+        size: Size.fromHeight(245.0),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          itemCount: artist.videos.length,
+          itemBuilder: (BuildContext context, int index) {
+            var video = artist.videos[index];
+//            return VideoCard(video);
+            return Placeholder();
+          },
+        ),
+      ),
+    );
   }
 
   @override
