@@ -1,6 +1,7 @@
 import 'package:blurry_artist_details_page/models.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+import 'package:blurry_artist_details_page/video_card.dart';
 
 class ArtistDetailsPage extends StatelessWidget {
   ArtistDetailsPage(this.artist);
@@ -87,8 +88,7 @@ class ArtistDetailsPage extends StatelessWidget {
           itemCount: artist.videos.length,
           itemBuilder: (BuildContext context, int index) {
             var video = artist.videos[index];
-//            return VideoCard(video);
-            return Placeholder();
+            return VideoCard(video);
           },
         ),
       ),
