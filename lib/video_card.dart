@@ -1,5 +1,6 @@
 import 'package:blurry_artist_details_page/models.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class VideoCard extends StatelessWidget {
   VideoCard(this.video);
@@ -41,7 +42,11 @@ class VideoCard extends StatelessWidget {
       color: Colors.black87,
       type: MaterialType.circle,
       child: InkWell(
-        onTap: () {},
+        onTap: () async {
+          if (await UrlLauncher.canLaunch(video.url)) {
+            await UrlLauncher.launch(video.url);
+          }
+        },
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
