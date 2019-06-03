@@ -20,11 +20,51 @@ class VideoCard extends StatelessWidget {
   }
 
   Widget _buildThumbnail() {
-    return Placeholder();
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Stack(
+//        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(video.thumbnail),
+          Positioned(
+            bottom: 12.0,
+            right: 12.0,
+            child: _buildPlayButton(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPlayButton() {
+    return Material(
+      color: Colors.black87,
+      type: MaterialType.circle,
+      child: InkWell(
+        onTap: () {},
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Icon(
+            Icons.play_arrow,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildInfo() {
-    return Placeholder();
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 16.0,
+        left: 4.0,
+        right: 4.0,
+      ),
+      child: Text(
+        video.title,
+        style: TextStyle(color: Colors.white.withOpacity(0.85)),
+      ),
+    );
   }
 
   @override
