@@ -6,7 +6,17 @@ class VideoCard extends StatelessWidget {
   final Video video;
 
   BoxDecoration _buildShadowAndRoundedCorners() {
-    return BoxDecoration();
+    return BoxDecoration(
+      color: Colors.white.withOpacity(0.4),
+      borderRadius: BorderRadius.circular(10.0),
+      boxShadow: <BoxShadow>[
+        BoxShadow(
+          spreadRadius: 2.0,
+          blurRadius: 10.0,
+          color: Colors.black26,
+        ),
+      ],
+    );
   }
 
   Widget _buildThumbnail() {
